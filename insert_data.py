@@ -1,7 +1,7 @@
 def insert_data(**kwargs):
     from pymongo import MongoClient
     import pandas as pd
-
+    import logging
     # MongoDB Atlas connection string with srv
     connection_string = "mongodb+srv://ankitchail:Jm8K9C54gxSWxqso@cluster0.u41jx.mongodb.net/"
 
@@ -51,4 +51,14 @@ def insert_data(**kwargs):
     summary=summary.to_dict('records')
     summary_cn.insert_many(summary)
 
+    logger = logging.getLogger("airflow.task")
+    task_instance = kwargs['ti']
+    task_id = task_instance.task_id
+    dag_id = task_instance.dag_id
+    run_id = task_instance.run_id
+
+    # Log task information
+    logger.info(f"Running task _Test: {task_id}")
+    logger.info(f"DAG ID: {dag_id}")
+    logger.info(f"Run ID: {run_id}")
     print("Data inserted successfully.")

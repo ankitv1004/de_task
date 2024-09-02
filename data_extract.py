@@ -6,6 +6,7 @@ def data_extract(**kwargs):
     #below code is to import pyodbc and specify server credentials of source database
     import pandas as pd
     import pyodbc
+    import logging
     SERVER = 'tcp:ankitv1004.database.windows.net,1433;'
     DATABASE = 'sourcedb'
     USERNAME = 'CloudSA3952ed7e@ankitv1004'
@@ -143,4 +144,15 @@ def data_extract(**kwargs):
     kwargs['ti'].xcom_push(key='df_products', value=df_products)
     kwargs['ti'].xcom_push(key='df_categories', value=df_categories)
     kwargs['ti'].xcom_push(key='df_reviews', value=df_reviews)
+    
+    logger = logging.getLogger("airflow.task")
+    task_instance = kwargs['ti']
+    task_id = task_instance.task_id
+    dag_id = task_instance.dag_id
+    run_id = task_instance.run_id
+
+    # Log task information
+    logger.info(f"Running task _Test: {task_id}")
+    logger.info(f"DAG ID: {dag_id}")
+    logger.info(f"Run ID: {run_id}")
 #data_extract()

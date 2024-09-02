@@ -1,5 +1,6 @@
 def transform_data(**kwargs):
     import pandas as pd
+    import logging
     ti = kwargs['ti']
     df_customers=kwargs['ti'].xcom_pull(key='df_customers', task_ids='data_extract')
     df_orders=kwargs['ti'].xcom_pull(key='df_orders', task_ids='data_extract')
@@ -47,5 +48,16 @@ def transform_data(**kwargs):
     summary=summary.to_dict()
     ti = kwargs['ti']
     kwargs['ti'].xcom_push(key='summary', value=summary)
+    
+    logger = logging.getLogger("airflow.task")
+    task_instance = kwargs['ti']
+    task_id = task_instance.task_id
+    dag_id = task_instance.dag_id
+    run_id = task_instance.run_id
+
+    # Log task information
+    logger.info(f"Running task _Test: {task_id}")
+    logger.info(f"DAG ID: {dag_id}")
+    logger.info(f"Run ID: {run_id}")
     
     

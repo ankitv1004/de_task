@@ -21,3 +21,8 @@ The decription of included scripts is as follows:
    3. pandas
   
    Note- Sometimes Sql server does not get connected. If it happens rerunning script resolves it.
+ - Setup instructions for the SQL and NoSQL databases.- No need for setting up, connection to cloud hosted SQL and NoSQL db is 
+    established in scripts
+ - Instructions on how to run the pipeline.- Manual trigger to run instantly. Once active, pipeline is scheduled to run every 3 hrs.
+ - Explanations of the data structures used and their time complexities (Big O notations).
+   Pandas df and dictionary are used for transformation and insertion in Mongodb.

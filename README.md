@@ -1,5 +1,5 @@
 # de_task
-Scripts for ETL and data pipiline
+**Scripts for ETL and data pipiline**
 
 This project extracts data from Azure SQL db hosted on SQL Server on Azure cloud, 
 cleans the data,

@@ -20,8 +20,15 @@ The decription of included scripts is as follows:
    2. pymongo
    3. pandas
   
-   Note- Sometimes Sql server does not get connected. If it happens rerunning script resolves it.
--**Data is already inserted in Source db. Running the pipeline extracts , tansforms and loads the data in Mongodb.**
+
+**Steps to run**
+1. Copy all the scripts in dag folder
+2. Pip Install pymongo, pyodbc,pyodbc sql server driver, pandas
+
+Note- a). Sometimes Sql server does not get connected. If it happens rerunning script resolves it.
+b).**Data is already inserted in Source db. Running the pipeline extracts , tansforms and loads the data in Mongodb.**
+c). To check data in source db, use connection code from data_extract script.
+   To check data in target db, use connection code from insert_data script.
  - Setup instructions for the SQL and NoSQL databases.- No need for setting up, connection to cloud hosted SQL and NoSQL db is 
     established in scripts
  - Instructions on how to run the pipeline.- Manual trigger to run instantly. Once active, pipeline is scheduled to run every 3 hrs.

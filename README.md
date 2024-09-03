@@ -27,7 +27,8 @@ The decription of included scripts is as follows:
 3. Trigger etl_dag from airflow web UI.
 
 Note
-a). Sometimes Sql server does not get connected. If it happens rerunning script resolves it. 
+
+a). Sometimes Sql server does not get connected. If it happens, rerunning script resolves it. 
 b).**Data is already inserted in Source db. Running the pipeline extracts , tansforms and loads the data in Mongodb.**
 c). To check data in source db, use connection code from data_extract script.
    To check data in target db, use connection code from insert_data script.

@@ -24,7 +24,8 @@ The decription of included scripts is as follows:
 **Steps to run**
 1. Copy all the scripts in dag folder
 2. Pip Install pymongo, pyodbc,pyodbc sql server driver, pandas
-3. Trigger etl_dag from airflow web UI.
+3. Data is already inserted in source db
+4. Trigger etl_dag from airflow web UI.
 
 Note
 
